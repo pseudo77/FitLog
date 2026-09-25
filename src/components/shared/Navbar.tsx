@@ -11,7 +11,7 @@ const Navbar = () => {
 
     const links=<>
         <li>
-            <Link href="/workouts" className={ `text-[#9CA3AF] ${pathname==='/workouts'? 'bg-[#c2f800]': '' }` } >Workouts</Link>
+            <Link href="/" className={ `text-[#9CA3AF] ${pathname==='/'? 'bg-[#c2f800]': '' }` } >Workouts</Link>
           </li>
           <li>
             <Link href="/myPlan" className={ `text-[#9CA3AF] ${pathname==='/myPlan'? 'bg-[#c2f800]': '' }` }>My Plan</Link>
@@ -47,10 +47,10 @@ const Navbar = () => {
             
           </ul>
         </div>
-        <Link href="/" className=" text-xl flex gap-2 items-center max-sm:hidden">
+        <div  className=" text-xl flex gap-2 items-center max-sm:hidden">
             <Image src={Logo} alt="Logo"></Image>
             <h1 className="text-[#ffffff] text-[18px] font-black ">FITLOG</h1>
-        </Link>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
