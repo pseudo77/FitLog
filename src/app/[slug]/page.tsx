@@ -2,6 +2,7 @@ import { IworkoutType } from "@/types/workoutType";
 import Image from "next/image";
 import React from "react";
 import { FaRegBookmark } from "react-icons/fa6";
+import { MdOutlineToday } from "react-icons/md";
 
 const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
@@ -22,62 +23,97 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
           ></Image>
         </div>
         <div>
-          <p className="text-[36px] text-[#ffffff] font-bold ">{workout.name} </p>
-          <p className="text-[16px] text-[#9CA3AF] font-normal mb-5 mt-3">{workout.description} </p>
+          <p className="text-[36px] text-[#ffffff] font-bold ">
+            {workout.name}{" "}
+          </p>
+          <p className="text-[16px] text-[#9CA3AF] font-normal mb-5 mt-3">
+            {workout.description}{" "}
+          </p>
           <div className="flex justify-items-start gap-2 items-center my-4">
-            <p className="rounded-3xl py-1 px-4 text-[12px] text-[#0F1115] font-semibold bg-[#CCFF00]">{workout.muscleGroups[0]}</p>
-            <p className="rounded-3xl py-1 px-4 text-[12px] text-[#0F1115] font-semibold bg-[#CCFF00]">{workout.muscleGroups[1]}</p>
+            <p className="rounded-3xl py-1 px-4 text-[12px] text-[#0F1115] font-semibold bg-[#CCFF00]">
+              {workout.muscleGroups[0]}
+            </p>
+            <p className="rounded-3xl py-1 px-4 text-[12px] text-[#0F1115] font-semibold bg-[#CCFF00]">
+              {workout.muscleGroups[1]}
+            </p>
           </div>
           <div className="grid grid-cols-1 border border-slate-800 rounded-2xl bg-[#151922] p-3">
             <div className="flex justify-between mb-4">
               <p className="text-[12px] text-[#9CA3AF] font-bold ">EQUIPMENT</p>
-              <p className="text-[14px] text-[#E5E7EB] font-medium ">{workout.equipment} </p>
+              <p className="text-[14px] text-[#E5E7EB] font-medium ">
+                {workout.equipment}{" "}
+              </p>
             </div>
             <hr className="text-slate-800" />
             <div className="flex justify-between my-4">
-              <p className="text-[12px] text-[#9CA3AF] font-bold ">DIFFICULTY</p>
-              <p className="text-[14px] text-[#E5E7EB] font-medium ">{workout.difficulty} </p>
+              <p className="text-[12px] text-[#9CA3AF] font-bold ">
+                DIFFICULTY
+              </p>
+              <p className="text-[14px] text-[#E5E7EB] font-medium ">
+                {workout.difficulty}{" "}
+              </p>
             </div>
             <hr className="text-slate-800" />
             <div className="flex justify-between my-4">
               <p className="text-[12px] text-[#9CA3AF] font-bold ">SETS</p>
-              <p className="text-[14px] text-[#E5E7EB] font-medium ">{workout.sets} </p>
+              <p className="text-[14px] text-[#E5E7EB] font-medium ">
+                {workout.sets}{" "}
+              </p>
             </div>
             <hr className="text-slate-800" />
             <div className="flex justify-between my-4">
               <p className="text-[12px] text-[#9CA3AF] font-bold ">REPS</p>
-              <p className="text-[14px] text-[#E5E7EB] font-medium ">{workout.reps} </p>
+              <p className="text-[14px] text-[#E5E7EB] font-medium ">
+                {workout.reps}{" "}
+              </p>
             </div>
-            <hr className="text-slate-800"/>
+            <hr className="text-slate-800" />
 
             <div className="flex justify-between my-4">
               <p className="text-[12px] text-[#9CA3AF] font-bold ">DURATION</p>
-              <p className="text-[14px] text-[#E5E7EB] font-medium ">{workout.duration} </p>
+              <p className="text-[14px] text-[#E5E7EB] font-medium ">
+                {workout.duration}{" "}
+              </p>
             </div>
             <hr className="text-slate-800" />
 
             <div className="flex justify-between my-4">
               <p className="text-[12px] text-[#9CA3AF] font-bold ">CALORIES</p>
-              <p className="text-[14px] text-[#E5E7EB] font-medium ">{workout.caloriesBurned} </p>
+              <p className="text-[14px] text-[#E5E7EB] font-medium ">
+                {workout.caloriesBurned}{" "}
+              </p>
             </div>
             <hr className="text-slate-800" />
 
             <div className="flex justify-between my-4">
               <p className="text-[12px] text-[#9CA3AF] font-bold ">RATING</p>
-              <p className="text-[14px] text-[#E5E7EB] font-medium ">{workout.rating} </p>
+              <p className="text-[14px] text-[#E5E7EB] font-medium ">
+                {workout.rating}{" "}
+              </p>
             </div>
           </div>
-          <p className="text-[16px] text-[#FFFFFF] font-extrabold my-5">INSTRUCTIONS</p>
-          <ol>
-            {
-                workout.instructions.map((instruction:string, index:number)=><li key={index}>{index+1}. {instruction} </li>)
-            }
+          <p className="text-[16px] text-[#FFFFFF] font-extrabold my-5">
+            INSTRUCTIONS
+          </p>
+          <ol className="space-y-4 text-[14px] text-[#D1D5DB] ">
+            {workout.instructions.map((instruction: string, index: number) => (
+              <li key={index}>
+                {index + 1}. {instruction}{" "}
+              </li>
+            ))}
           </ol>
-          <div className="flex justify-items-start items-center mt-7 gap-3">
-            <button className="bg-[#CCFF00] rounded-xl text-[14px] text-[#0F1115] font-semibold px-10 py-2.5 ">Add to today&apos;s plan</button>
-            <div className="flex justify-between items-center gap-2 px-10 py-2.5 bg-[#374151] rounded-xl border border-slate-500">
-                <FaRegBookmark></FaRegBookmark>
-                <button className="  text-[14px] text-[#E5E7EB] font-medium  ">Save for later</button>
+          <div className="flex justify-items-start items-center mt-8 gap-3">
+            <div className="flex justify-between items-center bg-[#CCFF00] rounded-xl px-10 py-3.5 gap-2">
+              <MdOutlineToday className="text-[#0F1115]"></MdOutlineToday>
+              <button className=" text-[14px] text-[#0F1115] font-semibold  ">
+                Add to today&apos;s plan
+              </button>
+            </div>
+            <div className="flex justify-between items-center gap-2 px-10 py-3.5 bg-[#0f1115] rounded-xl border border-slate-500">
+              <FaRegBookmark></FaRegBookmark>
+              <button className="  text-[14px] text-[#E5E7EB] font-medium  ">
+                Save for later
+              </button>
             </div>
           </div>
         </div>

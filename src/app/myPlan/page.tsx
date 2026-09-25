@@ -1,11 +1,13 @@
-import React from 'react';
+import EmptyWorkout from "@/components/myPlanPage/EmptyWorkout";
+import React from "react";
+
 
 const MyPlanPage = () => {
-    return (
+  return (
         <div>
-            <h1 className='text-[12px] font-medium '>Welcome to my plan page</h1>
+            <EmptyWorkout></EmptyWorkout>
         </div>
-    );
+  );
 };
 
 export default MyPlanPage;
