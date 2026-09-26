@@ -110,10 +110,10 @@ const MetricSummaryRow = () => {
                 </button>
               </div>
                 ):(
-                  saved.map((saved:IworkoutType, index:number)=>{
+                  saved.map((save:IworkoutType, index:number)=>{
                       return(
                         <div key={index}>
-                          <MySavedCard saved={saved}></MySavedCard>
+                          <MySavedCard save={save}></MySavedCard>
                         </div>
                         
                       )
