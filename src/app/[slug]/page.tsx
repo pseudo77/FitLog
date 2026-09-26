@@ -1,8 +1,9 @@
+import AddButton from "@/components/shared/AddButton";
+import SaveButton from "@/components/shared/SaveButton";
 import { IworkoutType } from "@/types/workoutType";
 import Image from "next/image";
 import React from "react";
-import { FaRegBookmark } from "react-icons/fa6";
-import { MdOutlineToday } from "react-icons/md";
+
 
 const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
@@ -103,18 +104,8 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
             ))}
           </ol>
           <div className="flex justify-items-start items-center mt-8 gap-3">
-            <div className="flex justify-between items-center bg-[#CCFF00] rounded-xl px-10 py-3.5 gap-2">
-              <MdOutlineToday className="text-[#0F1115]"></MdOutlineToday>
-              <button className=" text-[14px] text-[#0F1115] font-semibold  ">
-                Add to today&apos;s plan
-              </button>
-            </div>
-            <div className="flex justify-between items-center gap-2 px-10 py-3.5 bg-[#0f1115] rounded-xl border border-slate-500">
-              <FaRegBookmark></FaRegBookmark>
-              <button className="  text-[14px] text-[#E5E7EB] font-medium  ">
-                Save for later
-              </button>
-            </div>
+            <AddButton workout={workout} ></AddButton>
+            <SaveButton workout={workout}></SaveButton>
           </div>
         </div>
       </div>

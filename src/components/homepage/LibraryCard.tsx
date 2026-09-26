@@ -10,7 +10,6 @@ interface IworkoutCardProps {
 }
 
 const LibraryCard = ({ workout }: IworkoutCardProps) => {
-  console.log(workout);
   return (
     <div>
       <Link href={`/${workout.id}`}>

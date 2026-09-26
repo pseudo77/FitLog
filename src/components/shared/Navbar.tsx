@@ -2,10 +2,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "@/assets/logo.png"
+import { MyPlanContext } from "@/context/MyPlanContext";
 
 const Navbar = () => {
+
+  const {planTotal, savedTotal}=useContext(MyPlanContext) as {
+    planTotal:number,
+    savedTotal:number
+  }
 
     const pathname=usePathname()
 
@@ -60,11 +66,11 @@ const Navbar = () => {
       <div className="navbar-end gap-3">
         <div className="flex gap-1 items-center">
             <Link href="/" className="text-[12px] font-medium " >Plan</Link>
-            <h1 className=" border w-10 h-10 rounded-full text-[#000000] text-[11px] font-bold bg-[#C2F800] flex items-center justify-center " >10</h1>
+            <Link href="/myPlan"><h1 className=" border w-9 h-9 rounded-full text-[#000000] text-[11px] font-bold bg-[#C2F800] flex items-center justify-center " >{planTotal}</h1></Link>
         </div>
         <div className="flex gap-1.5 items-center align-middle">
             <Link href="/" className="text-[12px] font-medium ">Saved</Link>
-            <h1 className=" border w-10 h-10 rounded-full text-[#D1D5DB] text-[11px] font-medium flex items-center justify-center " >10</h1>
+            <Link href="/myPlan"><h1 className=" border w-9 h-9 rounded-full text-[#D1D5DB] text-[11px] font-medium flex items-center justify-center " >{savedTotal}</h1></Link>
         </div>
         
       </div>
