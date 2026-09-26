@@ -5,6 +5,7 @@ import React, { Dispatch, SetStateAction, useContext } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import MyPlanCard from "./MyPlanCard";
 import MySavedCard from "./MySavedCard";
+import Link from "next/link";
 
 const MetricSummaryRow = () => {
   
@@ -84,9 +85,11 @@ const MetricSummaryRow = () => {
                 <p className="text-[12px] text-[#A1A1AA] font-normal mb-5">
                   Browse the library and add a lift to get today moving.
                 </p>
-                <button className="bg-[#C2F10D] rounded-[9999px] text-[12px] text-[#000000] font-semibold px-6 py-2.5">
+                <Link href="/">
+                  <button className="bg-[#C2F10D] rounded-[9999px] text-[12px] text-[#000000] font-semibold px-6 py-2.5">
                   Go to workouts
                 </button>
+                </Link>
               </div>):(
                 plans.map((plan:IworkoutType, index:number)=>{
                   return(

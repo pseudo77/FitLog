@@ -31,12 +31,16 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
             {workout.description}{" "}
           </p>
           <div className="flex justify-items-start gap-2 items-center my-4">
-            <p className="rounded-3xl py-1 px-4 text-[12px] text-[#0F1115] font-semibold bg-[#CCFF00]">
-              {workout.muscleGroups[0]}
+              {
+                workout.muscleGroups.map((muscle:string, index:number)=>{
+                  return(
+                      <p key={index} className="rounded-3xl py-1 px-4 text-[12px] text-[#0F1115] font-semibold bg-[#CCFF00]">
+              {muscle}
             </p>
-            <p className="rounded-3xl py-1 px-4 text-[12px] text-[#0F1115] font-semibold bg-[#CCFF00]">
-              {workout.muscleGroups[1]}
-            </p>
+                  )
+                })
+              }
+            
           </div>
           <div className="grid grid-cols-1 border border-slate-800 rounded-2xl bg-[#151922] p-3">
             <div className="flex justify-between mb-4">
