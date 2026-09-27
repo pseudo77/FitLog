@@ -11,10 +11,27 @@ const SaveButton = ({ workout }: { workout: IworkoutType }) => {
     setSaved: React.Dispatch<React.SetStateAction<IworkoutType[]>>;
   };
 
+  const isMatched = saved.some((p) => p.name === workout.name);
+
   const handleSaved = () => {
+    if (isMatched) {
+      toast.warning("Already saved ", {
+        position: "top-left",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
+      return;
+    }
+
     setSaved([...saved, workout]);
-    toast.success("Added to today's plan", {
-      position: "top-right",
+    toast.success("Saved", {
+      position: "top-left",
       autoClose: 1500,
       hideProgressBar: false,
       closeOnClick: false,

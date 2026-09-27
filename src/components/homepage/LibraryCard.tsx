@@ -13,7 +13,7 @@ const LibraryCard = ({ workout }: IworkoutCardProps) => {
   return (
     <div>
       <Link href={`/${workout.id}`}>
-        <div className=" bg-[#15171d] rounded-2xl ">
+        <div className=" bg-[#15171d] rounded-2xl hover:scale-105 ">
           <div>
             <Image
               className="relative w-full h-75 mb-10  rounded-2xl"

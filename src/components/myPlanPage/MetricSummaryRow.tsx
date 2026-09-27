@@ -8,20 +8,17 @@ import MySavedCard from "./MySavedCard";
 import Link from "next/link";
 
 const MetricSummaryRow = () => {
-  
-  const { plans,saved, active, setActive, total, minutes, calories } = useContext(MyPlanContext) as {
-    plans: IworkoutType[],
-    saved: IworkoutType[],
-    active:boolean,
-    setActive:Dispatch<SetStateAction<boolean>>,
-    total:number,
-    minutes:number,
-    calories:number
-  };
+  const { plans, saved, active, setActive, total, minutes, calories } =
+    useContext(MyPlanContext) as {
+      plans: IworkoutType[];
+      saved: IworkoutType[];
+      active: boolean;
+      setActive: Dispatch<SetStateAction<boolean>>;
+      total: number;
+      minutes: number;
+      calories: number;
+    };
 
- 
-
-  
   return (
     <div>
       <div className="container mx-auto mt-12 mb-10">
@@ -76,54 +73,53 @@ const MetricSummaryRow = () => {
             </div>
           </div>
         </div>
-        {
-          active?
-               ( total===0? (<div className="flex flex-col bg-[#111317] rounded-2xl my-20 p-50 items-center align-middle">
-                <p className="text-[20px] text-[#ffffff] font-bold ">
-                  NOTHING HERE YET
-                </p>
-                <p className="text-[12px] text-[#A1A1AA] font-normal mb-5">
-                  Browse the library and add a lift to get today moving.
-                </p>
-                <Link href="/">
-                  <button className="bg-[#C2F10D] rounded-[9999px] text-[12px] text-[#000000] font-semibold px-6 py-2.5">
-                  Go to workouts
-                </button>
-                </Link>
-              </div>):(
-                plans.map((plan:IworkoutType, index:number)=>{
-                  return(
-                    (<div key={index}>
-                      <MyPlanCard plan={plan}></MyPlanCard>
-                    </div>)
-                  )
-                })
-              )):
-              (total===0?
-                (
-                  <div className="flex flex-col bg-[#111317] rounded-2xl my-20 p-50 items-center align-middle">
-                <p className="text-[20px] text-[#ffffff] font-bold ">
-                  NOTHING HERE YET
-                </p>
-                <p className="text-[12px] text-[#A1A1AA] font-normal mb-5">
-                  Browse the library and add a lift to get today moving.
-                </p>
+        {active ? (
+          total === 0 ? (
+            <div className="flex flex-col bg-[#111317] rounded-2xl my-20 p-50 items-center align-middle">
+              <p className="text-[20px] text-[#ffffff] font-bold ">
+                NOTHING HERE YET
+              </p>
+              <p className="text-[12px] text-[#A1A1AA] font-normal mb-5">
+                Browse the library and add a lift to get today moving.
+              </p>
+              <Link href="/">
                 <button className="bg-[#C2F10D] rounded-[9999px] text-[12px] text-[#000000] font-semibold px-6 py-2.5">
                   Go to workouts
                 </button>
+              </Link>
+            </div>
+          ) : (
+            plans.map((plan: IworkoutType, index: number) => {
+              return (
+                <div key={index}>
+                  <MyPlanCard plan={plan}></MyPlanCard>
+                </div>
+              );
+            })
+          )
+        ) : total === 0 ? (
+          <div className="flex flex-col bg-[#111317] rounded-2xl my-20 p-50 items-center align-middle">
+            <p className="text-[20px] text-[#ffffff] font-bold ">
+              NOTHING HERE YET
+            </p>
+            <p className="text-[12px] text-[#A1A1AA] font-normal mb-5">
+              Browse the library and add a lift to get today moving.
+            </p>
+            <Link href="/">
+              <button className="bg-[#C2F10D] rounded-[9999px] text-[12px] text-[#000000] font-semibold px-6 py-2.5">
+                Go to workouts
+              </button>
+            </Link>
+          </div>
+        ) : (
+          saved.map((save: IworkoutType, index: number) => {
+            return (
+              <div key={index}>
+                <MySavedCard save={save}></MySavedCard>
               </div>
-                ):(
-                  saved.map((save:IworkoutType, index:number)=>{
-                      return(
-                        <div key={index}>
-                          <MySavedCard save={save}></MySavedCard>
-                        </div>
-                        
-                      )
-                    })
-                )
-              )
-            }
+            );
+          })
+        )}
       </div>
     </div>
   );

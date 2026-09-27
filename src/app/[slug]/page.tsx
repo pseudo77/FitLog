@@ -8,7 +8,7 @@ import React from "react";
 const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const response = await fetch(
-    `https://api.abcz.workers.dev/api/fitlog/${slug}`,
+    `https://api.api-store.workers.dev/api/fitlog/${slug}`,
   );
   const workout: IworkoutType = await response.json();
   return (

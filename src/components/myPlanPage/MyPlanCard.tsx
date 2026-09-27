@@ -3,9 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaCheck, FaClock, FaFire, FaStar } from "react-icons/fa";
-import { FaXmark } from "react-icons/fa6";
+import RemoveButton from "./RemoveButton";
+
 
 const MyPlanCard = ({ plan }: { plan: IworkoutType }) => {
+
+  
   return (
     <div>
       <div className="flex justify-between mt-10 px-7 py-3 bg-[#14171E] rounded-2xl ">
@@ -57,7 +60,7 @@ const MyPlanCard = ({ plan }: { plan: IworkoutType }) => {
             <FaCheck></FaCheck>
             <p>Mark as Done</p>
           </button>
-          <FaXmark className="w-4 h-4"></FaXmark>
+          <RemoveButton plan={plan}></RemoveButton>
         </div>
       </div>
     </div>
