@@ -20,8 +20,13 @@ interface IgroupOfState {
   calories: number;
   planTotal: number;
   savedTotal: number;
-  isDone: boolean;
-  setIsDone: Dispatch<SetStateAction<boolean>>;
+  done: number[];
+  setDone: Dispatch<SetStateAction<number[]>>;
+  sortTab:"Duration" | "Calories" | "Rating";
+  setSortTab:Dispatch<SetStateAction<"Duration" | "Calories" | "Rating">>;
+  sortedPlans:IworkoutType[];
+  sortedSaved:IworkoutType[]
+
 }
 
 export const MyPlanContext = createContext({});
@@ -34,7 +39,7 @@ const MyPlanProvider = ({ children }: { children: ReactNode }) => {
   const total = currentTab.length;
   const planTotal = plans.length;
   const savedTotal = saved.length;
-  const [isDone, setIsDone]=useState<boolean>(false)
+  const [done, setDone]=useState<number[]>([])
 
   const minutes = currentTab.reduce(
     (accumulator: number, elem: IworkoutType) => {
@@ -49,6 +54,24 @@ const MyPlanProvider = ({ children }: { children: ReactNode }) => {
     0,
   );
 
+  const [sortTab, setSortTab]=useState<"Duration" | "Calories" | "Rating">("Duration");
+
+  const sortedTabs=((workout:IworkoutType[])=>{
+    const sorted=[...workout];
+    if(sortTab==="Duration"){
+      sorted.sort((a,b)=>a.duration-b.duration)
+    }
+    else if(sortTab==="Calories"){
+      sorted.sort((a,b)=>b.caloriesBurned-a.caloriesBurned)
+    }
+    else
+      sorted.sort((a,b)=>a.rating-b.rating)
+    return sorted;
+  })
+
+  const sortedPlans=sortedTabs(plans)
+  const sortedSaved=sortedTabs(saved)
+
   const groupOfState: IgroupOfState = {
     plans,
     saved,
@@ -61,8 +84,12 @@ const MyPlanProvider = ({ children }: { children: ReactNode }) => {
     calories,
     planTotal,
     savedTotal,
-    isDone,
-    setIsDone
+    done,
+    setDone,
+    sortTab,
+    setSortTab,
+    sortedPlans,
+    sortedSaved
   };
 
   return (

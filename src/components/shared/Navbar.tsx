@@ -1,33 +1,48 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useContext } from "react";
-import Logo from "@/assets/logo.png"
+import Logo from "@/assets/logo.png";
 import { MyPlanContext } from "@/context/MyPlanContext";
 
 const Navbar = () => {
+  const { planTotal, savedTotal } = useContext(MyPlanContext) as {
+    planTotal: number;
+    savedTotal: number;
+  };
 
-  const {planTotal, savedTotal}=useContext(MyPlanContext) as {
-    planTotal:number,
-    savedTotal:number
-  }
+  const pathname = usePathname();
 
-    const pathname=usePathname()
-
-    const links=<>
-        <li>
-            <Link href="/" className={ `text-[#9CA3AF] ${pathname==='/'? 'bg-[#c2f800]': '' }` } >Workouts</Link>
-          </li>
-          <li>
-            <Link href="/myPlan" className={ `text-[#9CA3AF] ${pathname==='/myPlan'? 'bg-[#c2f800]': '' }` }>My Plan</Link>
-          </li>
+  const links = (
+    <>
+      <li>
+        <Link
+          href="/"
+          className={`text-[#9CA3AF] cursor-pointer hover:scale-105 ${pathname === "/" ? "bg-[#c2f800]" : ""}`}
+        >
+          Workouts
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/myPlan"
+          className={`text-[#9CA3AF] cursor-pointer hover:scale-105 ${pathname === "/myPlan" ? "bg-[#c2f800]" : ""}`}
+        >
+          My Plan
+        </Link>
+      </li>
     </>
+  );
   return (
     <div className="navbar shadow-sm container mx-auto bg-[#] ">
-      <div className="navbar-start">
+      <div className="navbar-start gap-3">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost bg-[#ffffff] lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost bg-[#ffffff] lg:hidden"
+          >
             <svg
               aria-label="Menu"
               xmlns="http://www.w3.org/2000/svg"
@@ -50,29 +65,39 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {links}
-            
           </ul>
         </div>
-        <div  className=" text-xl flex gap-2 items-center max-sm:hidden">
-            <Image src={Logo} alt="Logo"></Image>
-            <h1 className="text-[#ffffff] text-[18px] font-black ">FITLOG</h1>
+        <div className=" text-xl flex gap-2 items-center max-sm:hidden">
+          <Image src={Logo} alt="Logo"></Image>
+          <h1 className="text-[#ffffff] text-[18px] font-black ">FITLOG</h1>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {links}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-3">
-        <div className="flex gap-1 items-center">
-            <Link href="/" className="text-[12px] font-medium " >Plan</Link>
-            <Link href="/myPlan"><h1 className=" border w-9 h-9 rounded-full text-[#000000] text-[11px] font-bold bg-[#C2F800] flex items-center justify-center " >{planTotal}</h1></Link>
+        <div className="flex gap-1 items-center shrink-0">
+          <Link
+            href="/myPlan"
+            className="flex gap-1 items-center cursor-pointer hover:scale-105"
+          >
+            <span className="text-[12px] font-medium">Plan</span>
+            <h1 className=" border w-9 h-9 rounded-full text-[#000000] text-[11px] font-bold bg-[#C2F800] flex items-center justify-center ">
+              {planTotal}
+            </h1>
+          </Link>
         </div>
-        <div className="flex gap-1.5 items-center align-middle">
-            <Link href="/" className="text-[12px] font-medium ">Saved</Link>
-            <Link href="/myPlan"><h1 className=" border w-9 h-9 rounded-full text-[#D1D5DB] text-[11px] font-medium flex items-center justify-center " >{savedTotal}</h1></Link>
+        <div className="flex gap-1.5 items-center align-middle shrink-0">
+          <Link
+            href="/myPlan"
+            className="flex gap-1.5 items-center cursor-pointer hover:scale-105"
+          >
+            <span className="text-[12px] font-medium">Saved</span>
+            <h1 className=" border w-9 h-9 rounded-full text-[#D1D5DB] text-[11px] font-medium flex items-center justify-center ">
+              {savedTotal}
+            </h1>
+          </Link>
         </div>
-        
       </div>
     </div>
   );

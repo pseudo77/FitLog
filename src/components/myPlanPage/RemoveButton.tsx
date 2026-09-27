@@ -5,9 +5,10 @@ import { FaXmark } from "react-icons/fa6";
 import { Bounce, toast } from "react-toastify";
 
 const RemoveButton = ({ plan }: { plan: IworkoutType }) => {
-  const { plans, setPlans } = useContext(MyPlanContext) as {
+  const { plans, setPlans,  setDone } = useContext(MyPlanContext) as {
     plans: IworkoutType[];
     setPlans: Dispatch<SetStateAction<IworkoutType[]>>;
+    setDone:Dispatch<SetStateAction<number[]>>
   };
 
   const handleRemoveButton = (plan: IworkoutType) => {
@@ -24,6 +25,7 @@ const RemoveButton = ({ plan }: { plan: IworkoutType }) => {
     });
     const planned = plans.filter((plann) => plann.name !== plan.name);
     setPlans(planned);
+    setDone((previous:number[])=>previous.filter((id)=>id!==plan.id))
   };
   return (
     <div>

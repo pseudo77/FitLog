@@ -4,7 +4,6 @@ import { IworkoutType } from "@/types/workoutType";
 import Image from "next/image";
 import React from "react";
 
-
 const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const response = await fetch(
@@ -13,34 +12,34 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const workout: IworkoutType = await response.json();
   return (
     <section>
-      <div className="flex justify-between container mx-auto my-20">
+      <div className="flex flex-col lg:flex-row justify-between container mx-auto my-20 px-4 sm:px-6 lg:px-0 gap-8 lg:gap-0">
         <div>
           <Image
             src={workout.image}
             alt={workout.name}
             height={950}
             width={700}
-            className="rounded-2xl"
+            className="rounded-2xl w-full h-auto lg:w-175"
           ></Image>
         </div>
         <div>
-          <p className="text-[36px] text-[#ffffff] font-bold ">
+          <p className="text-[28px] sm:text-[32px] lg:text-[36px] text-[#ffffff] font-bold ">
             {workout.name}{" "}
           </p>
           <p className="text-[16px] text-[#9CA3AF] font-normal mb-5 mt-3">
             {workout.description}{" "}
           </p>
-          <div className="flex justify-items-start gap-2 items-center my-4">
-              {
-                workout.muscleGroups.map((muscle:string, index:number)=>{
-                  return(
-                      <p key={index} className="rounded-3xl py-1 px-4 text-[12px] text-[#0F1115] font-semibold bg-[#CCFF00]">
-              {muscle}
-            </p>
-                  )
-                })
-              }
-            
+          <div className="flex flex-wrap justify-items-start gap-2 items-center my-4">
+            {workout.muscleGroups.map((muscle: string, index: number) => {
+              return (
+                <p
+                  key={index}
+                  className="rounded-3xl py-1 px-4 text-[12px] text-[#0F1115] font-semibold bg-[#CCFF00]"
+                >
+                  {muscle}
+                </p>
+              );
+            })}
           </div>
           <div className="grid grid-cols-1 border border-slate-800 rounded-2xl bg-[#151922] p-3">
             <div className="flex justify-between mb-4">
@@ -108,7 +107,7 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
             ))}
           </ol>
           <div className="flex justify-items-start items-center mt-8 gap-3">
-            <AddButton workout={workout} ></AddButton>
+            <AddButton workout={workout}></AddButton>
             <SaveButton workout={workout}></SaveButton>
           </div>
         </div>

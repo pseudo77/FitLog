@@ -3,14 +3,16 @@ import React, { Dispatch, SetStateAction, useContext } from "react";
 import { FaCheck } from "react-icons/fa";
 import { Bounce, toast } from "react-toastify";
 
-const MarkAsDone = () => {
-  const {isDone, setIsDone} =useContext(MyPlanContext) as{
-    isDone:boolean,
-    setIsDone:Dispatch<SetStateAction<boolean>>
+const MarkAsDone = ({plan}:{plan:number}) => {
+  const {done, setDone} =useContext(MyPlanContext) as{
+    done:number[],
+    setDone:Dispatch<SetStateAction<number[]>>
   };
 
+  const isDone=done.includes(plan)
+
   const handleMarkAsDone = () => {
-    setIsDone(true);
+    setDone((previous:number[]) => [...previous, plan]);;
 
     toast.success("Saved", {
       position: "top-left",

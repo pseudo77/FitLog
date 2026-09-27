@@ -44,10 +44,10 @@ const SaveButton = ({ workout }: { workout: IworkoutType }) => {
   };
 
   return (
-    <div>
+    <div className="w-full sm:w-auto">
       <div
         onClick={() => handleSaved()}
-        className="btn flex justify-between items-center gap-2 px-10 py-2.5 bg-[#0f1115] rounded-xl border border-slate-500"
+        className="btn h-auto flex justify-center items-center gap-2 px-5 sm:px-10 py-3.5 bg-[#0f1115] rounded-xl border border-slate-500 w-full sm:w-auto cursor-pointer hover:scale-105"
       >
         <FaRegBookmark className="text-[#E5E7EB]"></FaRegBookmark>
         <button className="  text-[14px] text-[#E5E7EB] font-medium  ">

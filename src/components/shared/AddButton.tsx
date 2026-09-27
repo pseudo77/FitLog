@@ -28,7 +28,6 @@ const AddButton = ({ workout }: { workout: IworkoutType }) => {
       return;
     }
 
-    
     setPlans([...plans, workout]);
     toast.success("Added to today's plan", {
       position: "top-left",
@@ -43,10 +42,10 @@ const AddButton = ({ workout }: { workout: IworkoutType }) => {
     });
   };
   return (
-    <div>
+    <div className="w-full sm:w-auto">
       <div
         onClick={() => handleAddButton()}
-        className="btn flex justify-between items-center bg-[#CCFF00] rounded-xl px-10 py-3.5 gap-2"
+        className="btn h-auto flex justify-center items-center bg-[#CCFF00] rounded-xl px-5 sm:px-10 py-3.5 gap-2 w-full sm:w-auto cursor-pointer hover:scale-105"
       >
         <MdOutlineToday className="text-[#0F1115]"></MdOutlineToday>
         <button className="cursor-pointer text-[14px] text-[#0F1115] font-semibold  ">
