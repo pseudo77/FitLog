@@ -2,8 +2,9 @@ import { IworkoutType } from "@/types/workoutType";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FaCheck, FaClock, FaFire, FaStar } from "react-icons/fa";
+import {  FaClock, FaFire, FaStar } from "react-icons/fa";
 import RemoveButton from "./RemoveButton";
+import MarkAsDone from "./MarkAsDone";
 
 
 const MyPlanCard = ({ plan }: { plan: IworkoutType }) => {
@@ -56,10 +57,7 @@ const MyPlanCard = ({ plan }: { plan: IworkoutType }) => {
             
           </Link>
 
-          <button className="px-5 py-2.5 flex justify-center gap-2 items-center  bg-[#CCFF00] rounded-2xl text-[12px] text-[#000000] font-semibold ">
-            <FaCheck></FaCheck>
-            <p>Mark as Done</p>
-          </button>
+          <MarkAsDone></MarkAsDone>
           <RemoveButton plan={plan}></RemoveButton>
         </div>
       </div>
