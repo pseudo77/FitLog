@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FitTrack
 
-## Getting Started
+A modern workout planning and tracking web application that helps users organize their workout plans, track completed exercises, and monitor important workout statistics through a clean and responsive interface.
 
-First, run the development server:
+## 🛠️ Technologies Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* **Next.js** — React framework for building the application
+* **React** — Component-based UI development
+* **TypeScript** — Type-safe JavaScript
+* **Tailwind CSS** — Responsive and utility-first styling
+* **React Icons** — UI icons
+* **React Toastify** — User notifications and feedback
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Workout Plan Management**
+   Users can view and manage their planned workouts in an organized interface.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Mark Workouts as Completed**
+   Users can mark a workout as completed, with the interface updating to show its completed state.
 
-## Learn More
+3. **Saved Workouts**
+   Users can switch between their planned workouts and saved workouts using an interactive tab system.
 
-To learn more about Next.js, take a look at the following resources:
+4. **Workout Statistics**
+   The application displays useful workout information such as total workouts, duration, and calories.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. **Responsive Modern UI**
+   Built with Tailwind CSS to provide a clean, responsive interface that works across different screen sizes.
