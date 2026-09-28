@@ -29,7 +29,7 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
           <p className="text-[16px] text-[#9CA3AF] font-normal mb-5 mt-3">
             {workout.description}{" "}
           </p>
-          <div className="flex flex-wrap justify-items-start gap-2 items-center my-4">
+          <div className="flex flex-wrap justify-center xl:justify-start gap-2 items-center my-4">
             {workout.muscleGroups.map((muscle: string, index: number) => {
               return (
                 <p

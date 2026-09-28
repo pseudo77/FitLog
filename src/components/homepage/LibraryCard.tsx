@@ -24,7 +24,7 @@ const LibraryCard = ({ workout }: IworkoutCardProps) => {
             ></Image>
           </div>
           <div className="p-7">
-            <div className="flex justify-items-start gap-2 items-center mb-2.5">
+            <div className="flex justify-center xl:justify-start gap-2 items-center mb-2.5">
               {
                 workout.muscleGroups.map((muscle:string, index:number)=><p className="rounded-2xl text-[11px] text-[#000000] font-bold bg-[#C2F800] px-5 py-1 " key={index}>{muscle} </p>)
               }
