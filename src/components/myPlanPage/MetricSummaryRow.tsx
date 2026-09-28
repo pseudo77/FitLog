@@ -2,7 +2,6 @@
 import { MyPlanContext } from "@/context/MyPlanContext";
 import { IworkoutType } from "@/types/workoutType";
 import React, { Dispatch, SetStateAction, useContext } from "react";
-import { FaBars } from "react-icons/fa";
 
 import MyPlanCard from "./MyPlanCard";
 import MySavedCard from "./MySavedCard";
@@ -28,10 +27,6 @@ const MetricSummaryRow = () => {
     calories: number;
   };
 
-  const closeDropdown = () => {
-    (document.activeElement as HTMLElement)?.blur();
-  };
-
   return (
     <div>
       <div className="mt-12 mb-10">
@@ -52,66 +47,14 @@ const MetricSummaryRow = () => {
           </div>
         </div>
 
-        <div className="flex sm:hidden flex-row items-center justify-between gap-3 mt-10">
-          <div className="dropdown">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn flex items-center gap-2 border border-slate-800 rounded-2xl bg-[#151921] px-4 py-2.5 text-[12px] text-[#ffffff] font-bold cursor-pointer hover:scale-105"
-            >
-              <FaBars className="text-[#8A92A0]"></FaBars>
-              {active ? "Today’s Plan" : "Saved"}
-            </div>
-            <ul
-              tabIndex={-1}
-              className="dropdown-content menu z-10 mt-2 w-44 p-2 border border-slate-800 rounded-2xl bg-[#151921] shadow"
-            >
-              <li>
-                <button
-                  onClick={() => {
-                    setActive(true);
-                    closeDropdown();
-                  }}
-                  className={
-                    active
-                      ? "btn bg-[#2B303D] border border-slate-800 rounded-lg text-[12px] text-[#ffffff] font-bold cursor-pointer hover:scale-105"
-                      : "bg-[#151921] text-[12px] text-[#8A92A0] font-normal cursor-pointer hover:scale-105"
-                  }
-                >
-                  Today’s Plan
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    setActive(false);
-                    closeDropdown();
-                  }}
-                  className={
-                    active
-                      ? "bg-[#151921] text-[12px] text-[#8A92A0] font-normal cursor-pointer hover:scale-105"
-                      : "btn bg-[#2B303D] border border-slate-800 rounded-lg text-[12px] text-[#ffffff] font-bold cursor-pointer hover:scale-105"
-                  }
-                >
-                  Saved
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <Sorting variant="mobile"></Sorting>
-          </div>
-        </div>
-
-        <div className="hidden sm:flex flex-row justify-between mt-10">
+        <div className="flex flex-col sm:flex-row items-center sm:items-stretch justify-between gap-4 sm:gap-0 mt-10">
           <div className="flex justify-between border border-slate-800 rounded-2xl bg-[#151921] ">
             <button
               onClick={() => setActive(true)}
               className={
                 active
-                  ? "btn bg-[#2B303D] border border-slate-800 rounded-lg px-6 py-2.5 text-[12px] text-[#ffffff] font-bold cursor-pointer hover:scale-105"
-                  : "bg-[#151921] text-[12px] text-[#8A92A0] px-6 py-2.5 font-normal cursor-pointer hover:scale-105"
+                  ? "btn bg-[#2B303D] border border-slate-800 rounded-lg px-4 sm:px-6 py-2.5 text-[12px] text-[#ffffff] font-bold cursor-pointer hover:scale-105"
+                  : "bg-[#151921] text-[12px] text-[#8A92A0] px-4 sm:px-6 py-2.5 font-normal cursor-pointer hover:scale-105"
               }
             >
               Today’s Plan
@@ -120,8 +63,8 @@ const MetricSummaryRow = () => {
               onClick={() => setActive(false)}
               className={
                 active
-                  ? " bg-[#151921] text-[12px] text-[#8A92A0] px-10 py-2.5 font-normal cursor-pointer hover:scale-105"
-                  : "btn bg-[#2B303D] border border-slate-800 rounded-lg px-10 py-2.5 text-[12px] text-[#ffffff] font-bold cursor-pointer hover:scale-105"
+                  ? " bg-[#151921] text-[12px] text-[#8A92A0] px-6 sm:px-10 py-2.5 font-normal cursor-pointer hover:scale-105"
+                  : "btn bg-[#2B303D] border border-slate-800 rounded-lg px-6 sm:px-10 py-2.5 text-[12px] text-[#ffffff] font-bold cursor-pointer hover:scale-105"
               }
             >
               Saved
@@ -129,7 +72,7 @@ const MetricSummaryRow = () => {
           </div>
 
           <div>
-            <Sorting variant="desktop"></Sorting>
+            <Sorting></Sorting>
           </div>
         </div>
         {active ? (

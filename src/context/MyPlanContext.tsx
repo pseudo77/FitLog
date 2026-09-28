@@ -59,13 +59,13 @@ const MyPlanProvider = ({ children }: { children: ReactNode }) => {
   const sortedTabs=((workout:IworkoutType[])=>{
     const sorted=[...workout];
     if(sortTab==="Duration"){
-      sorted.sort((a,b)=>a.duration-b.duration)
+      sorted.sort((a,b)=>b.duration-a.duration)
     }
     else if(sortTab==="Calories"){
       sorted.sort((a,b)=>b.caloriesBurned-a.caloriesBurned)
     }
     else
-      sorted.sort((a,b)=>a.rating-b.rating)
+      sorted.sort((a,b)=>b.rating-a.rating)
     return sorted;
   })
 

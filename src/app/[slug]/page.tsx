@@ -12,7 +12,7 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const workout: IworkoutType = await response.json();
   return (
     <section>
-      <div className="flex flex-col lg:flex-row justify-between container mx-auto my-20 px-4 sm:px-6 lg:px-0 gap-8 lg:gap-0">
+      <div className="flex flex-col lg:flex-row justify-between container mx-auto my-20 px-4 sm:px-6 lg:px-0 gap-8 lg:gap-4">
         <div>
           <Image
             src={workout.image}
@@ -96,17 +96,17 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
               </p>
             </div>
           </div>
-          <p className="text-[16px] text-[#FFFFFF] font-extrabold my-5">
+          <p className="text-[16px] text-[#FFFFFF] font-extrabold my-5 text-center lg:text-left">
             INSTRUCTIONS
           </p>
-          <ol className="space-y-4 text-[14px] text-[#D1D5DB] ">
+          <ol className="space-y-4 text-[14px] text-[#D1D5DB] text-center lg:text-left ">
             {workout.instructions.map((instruction: string, index: number) => (
               <li key={index}>
                 {index + 1}. {instruction}{" "}
               </li>
             ))}
           </ol>
-          <div className="flex justify-items-start items-center mt-8 gap-3">
+          <div className="flex max-md:flex-col flex-row max-lg:justify-center justify-items-start items-center mt-8 gap-3">
             <AddButton workout={workout}></AddButton>
             <SaveButton workout={workout}></SaveButton>
           </div>

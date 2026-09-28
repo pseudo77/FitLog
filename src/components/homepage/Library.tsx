@@ -26,8 +26,8 @@ const LibraryContent = async () => {
 const Library = () => {
   return (
     <section id="library" className="mt-20">
-      <p className="text-[30px] text-[#ffffff] font-bold ">THE LIBRARY</p>
-      <p className="text-[14px] text-[#9CA3AF] font-normal mb-10">
+      <p className="text-[30px] text-[#ffffff] font-bold text-center xl:text-left ">THE LIBRARY</p>
+      <p className="text-[14px] text-[#9CA3AF] font-normal mb-10 text-center xl:text-left">
         Twelve lifts covering every major muscle group.
       </p>
       <Suspense

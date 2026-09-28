@@ -46,7 +46,7 @@ const MySavedCard = ({ save }: { save: IworkoutType }) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-between gap-3 w-full lg:w-auto items-stretch sm:items-center">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center max-sm:justify-between sm:justify-end gap-3 w-full lg:w-auto  items-center">
           <Link
             href={`/${save.id}`}
             className="btn px-8 py-2.5 bg-[#14171E] border border-slate-800 rounded-2xl text-[12px] text-[#ffffff] font-normal cursor-pointer hover:scale-105 text-center "

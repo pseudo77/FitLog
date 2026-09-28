@@ -6,8 +6,8 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div>
-      <div className="container mx-auto  bg-[#090A0D] ">
-        <div className=" flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 py-15 px-5 text-center sm:text-left">
+      <div className=" bg-[#090A0D] ">
+        <div className=" flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 py-15  text-center sm:text-left">
           <Link
             href="/"
             className=" text-xl flex gap-2 items-center cursor-pointer hover:scale-105"

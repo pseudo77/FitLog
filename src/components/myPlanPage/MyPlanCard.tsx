@@ -47,7 +47,7 @@ const MyPlanCard = ({ plan }: { plan: IworkoutType }) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap justify-center lg:justify-between gap-4 items-center">
+        <div className="flex max-sm:flex-col flex-row flex-wrap max-sm:justify-center justify-end gap-4 items-center">
           <Link
             href={`/${plan.id}`}
             className="btn px-8 py-2.5 bg-[#14171E] border border-slate-800 rounded-2xl text-[12px] text-[#ffffff] font-normal cursor-pointer hover:scale-105 "

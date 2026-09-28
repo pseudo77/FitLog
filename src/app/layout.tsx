@@ -28,13 +28,25 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#0c0d10] text-[#ffffff]  ">
+      <body className="min-h-full flex flex-col bg-[#0c0d10] text-[#ffffff] text-center xl:text-left ">
         <MyPlanProvider>
-          <Navbar></Navbar>
-          <hr className="text-slate-700 container mx-auto" />
-          {children}
-          <hr className="text-slate-700 container mx-auto" />
-          <Footer></Footer>
+          <header>
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="border-b border-slate-700">
+                <Navbar></Navbar>
+              </div>
+            </div>
+          </header>
+          <main className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 w-full">
+            {children}
+          </main>
+          <footer className="bg-[#090A0D]">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="border-t border-slate-700">
+                <Footer></Footer>
+              </div>
+            </div>
+          </footer>
           <ToastContainer />
         </MyPlanProvider>
       </body>
